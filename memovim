@@ -1,0 +1,151 @@
+MEMO VIM
+
+I.
+  
+* Le curseur se déplace avec les touches fléchées ou les touches hjkl.
+           h (gauche)      j (bas)      k (haut)      l (droite)
+
+  * démarrer Vim via le terminal :  vim FICHIER <Entrée>
+
+  * quitter Vim :  <Échap> :q! <Entrée>  pour perdre tous les changements.
+             OU :  <Échap> :wq <Entrée>  pour enregistrer les changements.
+
+  * effacer un caractère sous le curseur :  x
+
+  * insérer ou ajouter du texte :
+    i   taper le texte à insérer avant le curseur   <Échap>
+    A   taper le texte à ajouter après le curseur   <Échap>
+
+
+II.
+
+
+  * effacer du curseur jusqu'au mot suivant :         dw
+
+  * effacer du curseur jusqu'à la fin d'une ligne :   d$
+
+  * effacer toute une ligne :                         dd
+
+  * répéter un déplacement ajout d'un quantificateur :2w
+
+  * Le format d'une commande de changement est :
+
+       opérateur   [nombre]   déplacement
+
+     Où :
+       opérateur   - est ce qu'il faut faire, comme  d  pour effacer.
+       [nombre]    - un quantificateur optionnel pour répéter le déplacement.
+       déplacement - déplace le long du texte à opérer, tel que  w  (mot),
+                     $ (jusqu'à la fin de ligne), etc.
+
+  * se déplacer au début de ligne, utilisez un zéro :  0
+
+  * annuler des actions précédentes, :            u (u minuscule)
+  * annuler tous les changements sur une ligne :  U (U majuscule)
+  * annuler l'annulation :                        CTRL-R
+
+
+
+
+III.
+
+
+  * remettre le texte qui a déjà été effacé, tapez  p .
+    Cela Place le texte effacé APRÈS le curseur (si une ligne complète a été effacée, elle sera placée sous la ligne du curseur).
+
+  * remplacer le caractère sous le curseur, tapez  r  suivi du caractère qui remplacera l'original.
+
+  * L'opérateur de changement vous permet de changer depuis la position du curseur jusqu'où le déplacement vous amène. 
+    Par exemple, tapez  "ce" pour changer du curseur jusqu'à la fin du mot,  c$  pour changer jusqu'à la fin d'une ligne.
+
+  * Le format pour le changement est :
+
+         c   [nombre]   déplacement
+
+
+
+
+IV.
+
+
+  * CTRL-G       affiche la position dans le fichier et l'état de celui-ci.
+    G 		 déplace à la fin du fichier.
+    num_ligne G  déplace au numéro de ligne.
+    gg		 déplace à la première ligne.
+
+  * Taper  /  suivi d'un texte recherche ce texte vers l'AVANT.
+  * Taper  ?  suivi d'un texte recherche ce texte vers l'ARRIÈRE.
+  * Après une recherche tapez  n  pour trouver l'occurrence suivante dans la
+    même direction ou  Maj-N  pour rechercher dans la direction opposée.
+
+  * Taper  %  lorsque le curseur est sur  (, ), [, ], { ou }  déplace
+    celui-ci sur le caractère correspondant.
+
+  * Pour remplacer le premier aa par bb sur une ligne tapez     :s/aa/bb
+    Pour remplacer tous les aa par bb sur une ligne tapez       :s/aa/bb/g
+    Pour remplacer du texte entre deux numéros de ligne tapez   :#,#s/aa/bb/g
+    Pour remplacer toutes les occurrences dans le fichier tapez :%s/aa/bb/g
+    Pour demander une confirmation à chaque fois ajoutez 'c'    :%s/aa/bb/gc
+
+
+
+
+
+V.
+
+  * :!commande  exécute une commande externe.
+
+     exemples :
+     
+     :!ls          affiche le contenu du répertoire courant.
+     :!rm FICHIER  efface FICHIER.
+
+  * :w FICHIER  enregistre le fichier Vim courant sur le disque avec pour
+                nom FICHIER.
+
+  * v  déplacement  :w FICHIER sauvegarde les lignes de la sélection Visuelle
+     dans le fichier FICHIER.
+
+  * :r FICHIER  récupère le contenu du fichier FICHIER et l'insère sous la
+     position du curseur.
+
+  * :r !dir  lit la sortie de la commande dir et l'insère sous la position
+     du curseur.
+
+
+
+VI.
+
+
+
+  * o  ouvre une ligne SOUS le curseur et démarre le mode Insertion.
+    O  ouvre une ligne au-DESSUS du curseur.
+
+  * a  pour insérer du texte APRÈS le curseur.
+    A  pour insérer du texte après la fin de ligne.
+
+  * e  déplace à la fin du mot.
+
+  * y  copie du texte,  p  le colle.
+
+  * R  (majuscule) active le mode Remplacement jusqu'à ce qu' <Échap> soit appuyé.
+
+  * ":set xxx"  active l'option "xxx". Quelques options sont :
+    'ic'  'ingnorecase' pour ignorer la casse lors des recherches.
+    'is'  'incsearch'   pour montrer les appariements partiels.
+    'hls' 'hlsearch'    pour mettre en surbrillance les appariements.
+
+
+
+VII.
+
+
+  * :help  ou appuyez <F1> ou <Aide> ouvre la fenêtre d'aide.
+
+  * :help cmd  pour trouver l'aide sur  cmd .
+
+  * CTRL-W CTRL-W saute à une autre fenêtre.
+
+  * :q ferme la fenêtre d'aide.
+
+  
